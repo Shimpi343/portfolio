@@ -687,3 +687,54 @@ body::before {
     transition: none !important;
   }
 }
+
+/* Topbar preview controls */
+#topbar-controls {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  background: rgba(6,10,18,0.6);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 10px 12px;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  font-family: Inter, sans-serif;
+  box-shadow: 0 8px 24px rgba(2,6,14,0.45);
+}
+#topbar-controls .controls-inner { display:flex;flex-direction:column;gap:8px;align-items:flex-start }
+#topbar-controls .control-buttons { display:flex; gap:8px }
+#topbar-controls button { background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:6px 10px;border-radius:6px;cursor:pointer }
+#topbar-controls button:hover { background: rgba(255,255,255,0.02) }
+#topbar-controls .control-legend { font-size:0.82rem; color:var(--muted) }
+
+/* Variant A: Compact minimal */
+body[data-topbar="a"] .topbar {
+  padding: 8px 14px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+body[data-topbar="a"] .nav a { color: var(--muted); font-size:0.95rem }
+body[data-topbar="a"] .nav-cta { display:none }
+
+/* Variant B: Transparent over hero */
+body[data-topbar="b"] .topbar {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: absolute;
+  left: 18px; right: 18px;
+}
+body[data-topbar="b"] .nav a, body[data-topbar="b"] .brand { color: rgba(255,255,255,0.92) }
+
+/* Variant C: Left-name / right-hamburger */
+body[data-topbar="c"] .nav { display:none }
+body[data-topbar="c"] .hamburger { display:inline-flex }
+.hamburger { display:none; background:transparent;border:0;color:var(--muted);cursor:pointer;padding:8px;border-radius:8px }
+.hamburger .bar { width:20px;height:2px;background:var(--muted);display:block;margin:3px 0 }
+
+/* Variant D: Resume-style (hide topbar) */
+body[data-topbar="d"] .topbar { display:none }
