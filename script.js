@@ -122,6 +122,30 @@ document.addEventListener('DOMContentLoaded', () => {
       setOpen(!card.classList.contains('is-open'));
     });
   });
+
+  // Slide-in reveal on scroll using IntersectionObserver
+  const revealElements = Array.from(document.querySelectorAll('.reveal'));
+  if (revealElements.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const el = entry.target;
+        if (entry.isIntersecting) {
+          // slight stagger based on position in list
+          const idx = revealElements.indexOf(el);
+          el.style.transitionDelay = `${(idx % 6) * 80}ms`;
+          el.classList.add('in');
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach((el) => {
+      // choose slide direction for variety (alternate left/right)
+      const idx = revealElements.indexOf(el);
+      if (idx % 2 === 1) el.classList.add('right');
+      observer.observe(el);
+    });
+  }
 });
 
 // Theme toggle: persist selection in localStorage
