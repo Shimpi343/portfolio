@@ -2,7 +2,7 @@
 
 :root {
   color-scheme: dark;
-  --bg: #081026;
+  --bg: #000000;
   --bg-soft: rgba(10, 14, 28, 0.72);
   --panel: rgba(12, 18, 30, 0.7);
   --panel-strong: rgba(10, 16, 28, 0.9);
@@ -27,13 +27,14 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--text);
-  background:
-    radial-gradient(circle at top, rgba(72, 114, 255, 0.18), transparent 32%),
-    radial-gradient(circle at 20% 20%, rgba(114, 241, 184, 0.12), transparent 28%),
-    radial-gradient(circle at 80% 20%, rgba(255, 138, 91, 0.12), transparent 26%),
-    linear-gradient(180deg, #040712 0%, #050816 46%, #03050d 100%);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(111, 179, 255, 0.06), transparent 10%),
+    radial-gradient(circle at 80% 20%, rgba(255, 138, 91, 0.04), transparent 12%);
+  background-blend-mode: screen;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
 body::before {
@@ -47,6 +48,27 @@ body::before {
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 90%);
   pointer-events: none;
   opacity: 0.18;
+}
+
+/* Subtle animated glow overlay above the canvas */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 50% 10%, rgba(111, 179, 255, 0.03), transparent 20%),
+    radial-gradient(circle at 80% 80%, rgba(255, 138, 91, 0.02), transparent 18%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+  z-index: -1;
+  animation: bgPulse 12s ease-in-out infinite;
+}
+
+@keyframes bgPulse {
+  0% { transform: scale(1) translateY(0); opacity: 0.85 }
+  50% { transform: scale(1.02) translateY(-6px); opacity: 1 }
+  100% { transform: scale(1) translateY(0); opacity: 0.85 }
 }
 
 #space {
