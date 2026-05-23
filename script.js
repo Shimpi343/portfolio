@@ -95,42 +95,31 @@ window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 requestAnimationFrame(drawBackground);
 
-// Topbar preview controls
 document.addEventListener('DOMContentLoaded', () => {
-  const controls = document.getElementById('topbar-controls');
-  if (!controls) return;
-  const buttons = controls.querySelectorAll('button[data-variant]');
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const v = btn.getAttribute('data-variant');
-      document.body.setAttribute('data-topbar', v);
+  const expandableCards = document.querySelectorAll('[data-expandable]');
+
+  expandableCards.forEach((card) => {
+    const toggle = card.querySelector('[data-card-toggle]');
+
+    const setOpen = (nextState) => {
+      card.classList.toggle('is-open', nextState);
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', String(nextState));
+      }
+    };
+
+    const handleToggle = (event) => {
+      event.stopPropagation();
+      setOpen(!card.classList.contains('is-open'));
+    };
+
+    if (toggle) {
+      toggle.addEventListener('click', handleToggle);
+    }
+
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('a, button')) return;
+      setOpen(!card.classList.contains('is-open'));
     });
   });
-
-  // Add hamburger button for variant C
-  const header = document.querySelector('.topbar');
-  if (header) {
-    const ham = document.createElement('button');
-    ham.className = 'hamburger';
-    ham.setAttribute('aria-label', 'menu');
-    ham.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
-    const right = header.querySelector('div') || header;
-    header.appendChild(ham);
-    ham.addEventListener('click', () => {
-      const nav = document.querySelector('.nav');
-      if (!nav) return;
-      if (nav.style.display === 'flex') {
-        nav.style.display = 'none';
-      } else {
-        nav.style.display = 'flex';
-        nav.style.flexDirection = 'column';
-        nav.style.position = 'absolute';
-        nav.style.top = '56px';
-        nav.style.right = '18px';
-        nav.style.background = 'linear-gradient(180deg, rgba(8,12,22,0.9), rgba(8,12,22,0.96))';
-        nav.style.padding = '12px';
-        nav.style.borderRadius = '10px';
-      }
-    });
-  }
 });

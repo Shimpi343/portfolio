@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
   </head>
-  <body data-topbar="d">
+  <body data-topbar="a">
     <canvas id="space" aria-hidden="true"></canvas>
     <div class="page-shell">
       <div class="ambient ambient-a"></div>
@@ -36,22 +36,9 @@
         </div>
       </header>
 
-      <div id="topbar-controls" aria-hidden="false">
-        <div class="controls-inner">
-          <strong>Topbar preview</strong>
-          <div class="control-buttons">
-            <button data-variant="a">A</button>
-            <button data-variant="b">B</button>
-            <button data-variant="c">C</button>
-            <button data-variant="d">D</button>
-          </div>
-          <div class="control-legend">A: Compact · B: Transparent · C: Name+Hamburger · D: Resume-style</div>
-        </div>
-      </div>
-
       <main>
-        <section class="hero" id="hero">
-          <div class="hero-copy reveal">
+        <section class="hero-grid" id="hero">
+          <article class="hero-card hero-intro reveal">
             <p class="eyebrow">Portfolio for high-impact roles</p>
             <h1>
               I'm <strong>Shimpi Kumari</strong> — front-end developer &amp; data analyst.
@@ -65,23 +52,9 @@
               <a class="button button-primary" href="#projects">See work</a>
               <a class="button button-secondary" href="#contact">Contact me</a>
             </div>
-            <div class="hero-metrics">
-              <article>
-                <strong>5+</strong>
-                <span>years building interfaces</span>
-              </article>
-              <article>
-                <strong>30+</strong>
-                <span>products and landing pages</span>
-              </article>
-              <article>
-                <strong>100%</strong>
-                <span>focus on outcomes and polish</span>
-              </article>
-            </div>
-          </div>
+          </article>
 
-          <div class="hero-visual reveal">
+          <article class="hero-card hero-visual-card reveal">
             <div class="visual-stage">
               <div class="grid"></div>
               <div class="prism prism-a"></div>
@@ -97,7 +70,29 @@
                 <strong>3D depth and ambient light.</strong>
               </div>
             </div>
-          </div>
+          </article>
+
+          <article class="hero-card hero-stats reveal">
+            <div class="hero-metrics">
+              <article>
+                <strong>5+</strong>
+                <span>years building interfaces</span>
+              </article>
+              <article>
+                <strong>30+</strong>
+                <span>products and landing pages</span>
+              </article>
+              <article>
+                <strong>100%</strong>
+                <span>focus on outcomes and polish</span>
+              </article>
+            </div>
+            <div class="hero-links">
+              <a class="card-link" href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="card-link" href="https://www.linkedin.com/in/shimpi-kumari-866a36289" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="card-link" href="mailto:kumarishimpi362@gmail.com">Email</a>
+            </div>
+          </article>
         </section>
 
         <section class="strip reveal">
@@ -155,7 +150,11 @@
           </div>
 
           <div class="project-grid">
-            <article class="project-card reveal">
+            <article class="project-card interactive-card reveal" data-expandable>
+              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
+                <span>Open details</span>
+                <span aria-hidden="true">+</span>
+              </button>
               <div class="project-visual project-visual-a"></div>
               <div class="project-body">
                 <p class="project-tag">MediAI-Assist</p>
@@ -163,10 +162,17 @@
                 <p>
                   Production-ready healthcare app combining disease prediction models, chatbot support, analytics dashboard, and appointment booking. Built with HTML/CSS, PHP, MySQL, and AI integration for scoring and suggestions.
                 </p>
+                <div class="card-details">
+                  <p>Highlights: appointment booking, AI triage, and a dashboard flow designed for quick patient decisions.</p>
+                </div>
               </div>
             </article>
 
-            <article class="project-card reveal">
+            <article class="project-card interactive-card reveal" data-expandable>
+              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
+                <span>Open details</span>
+                <span aria-hidden="true">+</span>
+              </button>
               <div class="project-visual project-visual-b"></div>
               <div class="project-body">
                 <p class="project-tag">Career Trust</p>
@@ -174,10 +180,17 @@
                 <p>
                   Aggregates job listings, extracts skills from resumes (PDF/DOCX), and recommends matches using TF-IDF and skill similarity. Stack: React, Node.js, Python.
                 </p>
+                <div class="card-details">
+                  <p>Highlights: resume parsing, matching logic, and job discovery in one workflow.</p>
+                </div>
               </div>
             </article>
 
-            <article class="project-card reveal">
+            <article class="project-card interactive-card reveal" data-expandable>
+              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
+                <span>Open details</span>
+                <span aria-hidden="true">+</span>
+              </button>
               <div class="project-visual project-visual-c"></div>
               <div class="project-body">
                 <p class="project-tag">Interview Simulator</p>
@@ -185,6 +198,9 @@
                 <p>
                   Simulates interview scenarios with text/voice responses, evaluates answers with AI for confidence, grammar, and technical correctness. Built with React, Node.js, Express, MySQL.
                 </p>
+                <div class="card-details">
+                  <p>Highlights: guided practice, structured feedback, and a more confident interview flow.</p>
+                </div>
               </div>
             </article>
           </div>
@@ -197,7 +213,11 @@
           </div>
 
           <div class="project-grid">
-            <article class="project-card reveal">
+            <article class="project-card interactive-card reveal" data-expandable>
+              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
+                <span>Open details</span>
+                <span aria-hidden="true">+</span>
+              </button>
               <div class="project-visual project-visual-a"></div>
               <div class="project-body">
                 <p class="project-tag">User Engagement Analysis</p>
@@ -205,10 +225,17 @@
                 <p>
                   Extracted and cleaned user activity data with SQL, used Excel pivot tables and charts to surface retention drivers and produced recommendations to improve engagement.
                 </p>
+                <div class="card-details">
+                  <p>Highlights: retention patterns, segmentation, and summary reporting for stakeholders.</p>
+                </div>
               </div>
             </article>
 
-            <article class="project-card reveal">
+            <article class="project-card interactive-card reveal" data-expandable>
+              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
+                <span>Open details</span>
+                <span aria-hidden="true">+</span>
+              </button>
               <div class="project-visual project-visual-b"></div>
               <div class="project-body">
                 <p class="project-tag">Sales Performance & Trend Analysis</p>
@@ -216,6 +243,9 @@
                 <p>
                   Analyzed monthly and quarterly sales using Excel functions and pivot charts, identified product/region performance patterns, and recommended actions to boost sales efficiency.
                 </p>
+                <div class="card-details">
+                  <p>Highlights: quarterly trends, product-level patterns, and decision-ready reporting.</p>
+                </div>
               </div>
             </article>
           </div>
