@@ -123,3 +123,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Theme toggle: persist selection in localStorage
+(() => {
+  const body = document.body;
+  const toggle = document.getElementById('theme-toggle');
+  const stored = localStorage.getItem('theme');
+
+  const apply = (theme) => {
+    if (theme === 'light') {
+      body.setAttribute('data-theme', 'light');
+      if (toggle) toggle.textContent = '☀️';
+      if (toggle) toggle.setAttribute('aria-pressed', 'true');
+    } else {
+      body.removeAttribute('data-theme');
+      if (toggle) toggle.textContent = '🌙';
+      if (toggle) toggle.setAttribute('aria-pressed', 'false');
+    }
+  };
+
+  // initialize
+  if (stored === 'light') apply('light');
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const current = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      if (current === 'light') {
+        localStorage.setItem('theme', 'light');
+      } else {
+        localStorage.removeItem('theme');
+      }
+      apply(current);
+    });
+  }
+})();
