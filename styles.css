@@ -738,3 +738,40 @@ body[data-topbar="c"] .hamburger { display:inline-flex }
 
 /* Variant D: Resume-style (hide topbar) */
 body[data-topbar="d"] .topbar { display:none }
+
+/* Resume-style layout tweaks */
+body[data-topbar="d"] {
+  --page-width: 820px;
+}
+body[data-topbar="d"] .page-shell {
+  width: min(var(--page-width), calc(100% - 32px));
+  padding: 12px 0 30px;
+}
+body[data-topbar="d"] .hero {
+  grid-template-columns: 1fr;
+  gap: 18px;
+  min-height: auto;
+  padding-top: 8px;
+}
+body[data-topbar="d"] .hero-copy h1 {
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  max-width: 100%;
+}
+body[data-topbar="d"] .hero-visual,
+body[data-topbar="d"] .visual-stage,
+body[data-topbar="d"] .grid,
+body[data-topbar="d"] .floating-card {
+  display: none !important;
+}
+body[data-topbar="d"] .hero-metrics {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+body[data-topbar="d"] .project-grid {
+  grid-template-columns: 1fr;
+}
+body[data-topbar="d"] .project-visual { display:none }
+body[data-topbar="d"] .project-card { border-radius: 8px; padding: 14px; display: block }
+body[data-topbar="d"] .project-body h3 { font-size: 1.08rem }
+body[data-topbar="d"] .project-body p { color: var(--muted); margin-top:6px }
+body[data-topbar="d"] .contact-panel { flex-direction: column; align-items: flex-start }
+body[data-topbar="d"] .contact-panel .button-primary { align-self: flex-start }
