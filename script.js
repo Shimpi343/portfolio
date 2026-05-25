@@ -166,6 +166,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const primary = document.querySelector('.button-primary');
     if (primary) primary.classList.add('attention');
+
+    // interactive parallax for the visual stage
+    const visual = document.querySelector('.visual-stage');
+    if (visual) {
+      let rafId = null;
+      const maxTilt = 8; // degrees
+      const applyTilt = (rx, ry) => {
+        visual.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      };
+
+      visual.addEventListener('mousemove', (e) => {
+        const rect = visual.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) / (rect.width / 2);
+        const dy = (e.clientY - cy) / (rect.height / 2);
+        const rotY = dx * maxTilt;
+        const rotX = -dy * maxTilt;
+
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => applyTilt(rotX, rotY));
+      });
+
+      visual.addEventListener('mouseleave', () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        visual.style.transform = '';
+      });
+    }
   }
 });
 

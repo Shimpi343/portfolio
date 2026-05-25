@@ -422,7 +422,73 @@ body[data-theme="light"] {
 }
 
 .prism,
-.orb { display: none; }
+.orb {
+  position: absolute;
+  display: block;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+/* 3D prisms */
+.prism {
+  width: 220px;
+  height: 220px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 18px 48px rgba(4, 10, 22, 0.5);
+  mix-blend-mode: screen;
+  opacity: 0.95;
+  transform-origin: 50% 50%;
+  animation: spin3d 8000ms linear infinite;
+}
+
+.prism-a {
+  left: 12%;
+  top: 18%;
+  width: 260px;
+  height: 180px;
+  background: linear-gradient(135deg, rgba(118,169,255,0.95), rgba(10,16,32,0.6));
+  transform: translateZ(40px) rotateX(18deg) rotateZ(-8deg) rotateY(-6deg);
+  animation-duration: 11000ms;
+}
+
+.prism-b {
+  right: 6%;
+  bottom: 6%;
+  width: 220px;
+  height: 220px;
+  background: linear-gradient(135deg, rgba(114,241,184,0.92), rgba(10,16,32,0.6));
+  transform: translateZ(-20px) rotateX(36deg) rotateZ(12deg) rotateY(12deg);
+  animation-duration: 14000ms;
+}
+
+@keyframes spin3d {
+  0% { transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg) translateZ(0) }
+  50% { transform: rotateX(18deg) rotateY(60deg) rotateZ(8deg) translateZ(8px) }
+  100% { transform: rotateX(10deg) rotateY(360deg) rotateZ(0deg) translateZ(0) }
+}
+
+/* Floating orbs */
+.orb {
+  width: 124px;
+  height: 124px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.06) 20%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(111,179,255,0.12), transparent 40%);
+  filter: blur(8px);
+  opacity: 0.9;
+  pointer-events: none;
+  animation: floatOrb 6000ms ease-in-out infinite;
+}
+
+.orb-large { right: 22%; top: 8%; width: 220px; height: 220px; opacity: 0.12; filter: blur(36px); animation-duration: 9000ms }
+.orb-small { left: 14%; bottom: 12%; width: 120px; height: 120px; opacity: 0.14; filter: blur(28px); animation-duration: 7000ms }
+
+@keyframes floatOrb {
+  0% { transform: translate3d(0,0,0) scale(1) }
+  50% { transform: translate3d(8px,-12px,16px) scale(1.06) }
+  100% { transform: translate3d(0,0,0) scale(1) }
+}
 
 .floating-card {
   position: absolute;
