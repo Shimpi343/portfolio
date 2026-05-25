@@ -146,6 +146,27 @@ document.addEventListener('DOMContentLoaded', () => {
       observer.observe(el);
     });
   }
+
+  // entrance animations for topbar and subtle brand/button motion
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    const topbar = document.querySelector('.topbar');
+    if (topbar) setTimeout(() => topbar.classList.add('show'), 120);
+
+    const brandMark = document.querySelector('.brand-mark');
+    if (brandMark) {
+      // initial pulse and occasional subtle pulses
+      setTimeout(() => brandMark.classList.add('pulse'), 240);
+      setTimeout(() => brandMark.classList.remove('pulse'), 1100);
+      setInterval(() => {
+        brandMark.classList.add('pulse');
+        setTimeout(() => brandMark.classList.remove('pulse'), 900);
+      }, 5200);
+    }
+
+    const primary = document.querySelector('.button-primary');
+    if (primary) primary.classList.add('attention');
+  }
 });
 
 // Theme toggle: persist selection in localStorage

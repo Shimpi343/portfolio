@@ -756,6 +756,65 @@ body[data-theme="light"] {
   }
 }
 
+/* Subtle attention and entrance animations */
+@keyframes pulseSlow {
+  0% { transform: scale(1); opacity: 1 }
+  50% { transform: scale(1.02); opacity: 0.98 }
+  100% { transform: scale(1); opacity: 1 }
+}
+
+@keyframes shine {
+  from { transform: translateX(-120%) skewX(-12deg) }
+  to { transform: translateX(120%) skewX(-12deg) }
+}
+
+.button-primary {
+  position: relative;
+  overflow: hidden;
+}
+.button-primary::after {
+  content: '';
+  position: absolute;
+  left: -120%;
+  top: -10%;
+  width: 40%;
+  height: 120%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.28) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-12deg);
+  transition: opacity 240ms ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.button-primary:hover::after {
+  opacity: 1;
+  animation: shine 900ms cubic-bezier(.18,.9,.32,1) both;
+}
+
+/* gentle long pulse to draw attention (very subtle) */
+.button-primary.attention {
+  animation: pulseSlow 6s ease-in-out infinite;
+}
+
+/* brand mark glow */
+.brand-mark {
+  transition: transform 420ms ease, box-shadow 420ms ease;
+}
+.brand-mark.pulse {
+  transform: scale(1.06);
+  box-shadow: 0 0 18px rgba(111,179,255,0.18);
+}
+
+/* topbar entrance */
+.topbar {
+  transform: translateY(-8px);
+  opacity: 0;
+  transition: transform 420ms cubic-bezier(.22,.9,.36,1), opacity 420ms ease;
+}
+.topbar.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 @media (max-width: 1080px) {
   .hero-grid,
   .skills-layout,
