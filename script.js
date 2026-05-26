@@ -91,9 +91,10 @@ function drawBackground(time) {
   requestAnimationFrame(drawBackground);
 }
 
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-requestAnimationFrame(drawBackground);
+// visual background animation disabled to simplify page design
+// window.addEventListener('resize', resizeCanvas);
+// resizeCanvas();
+// requestAnimationFrame(drawBackground);
 
 document.addEventListener('DOMContentLoaded', () => {
   const expandableCards = document.querySelectorAll('[data-expandable]');
