@@ -1,8 +1,38 @@
-const canvas = document.getElementById('space');
-let context = null;
-if (canvas && canvas.getContext) {
-  context = canvas.getContext('2d');
+// Minimal site script: theme toggle and smooth scrolling
+const themeToggle = document.getElementById('theme-toggle');
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const stored = localStorage.getItem('theme');
+
+function applyTheme(theme) {
+  if (theme === 'light') document.body.setAttribute('data-theme', 'light');
+  else document.body.removeAttribute('data-theme');
 }
+
+// Initialize theme
+if (stored) applyTheme(stored);
+else applyTheme(prefersDark ? 'dark' : 'light');
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isLight = document.body.getAttribute('data-theme') === 'light';
+    const next = isLight ? 'dark' : 'light';
+    applyTheme(next === 'light' ? 'light' : null);
+    if (next === 'light') localStorage.setItem('theme', 'light');
+    else localStorage.removeItem('theme');
+  });
+}
+
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    const href = a.getAttribute('href');
+    if (href.length > 1) {
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
 
 const state = {
   width: 0,
