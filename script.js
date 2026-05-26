@@ -196,73 +196,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // coding animation: type and cycle snippets in the terminal panel
+    // coding animation removed — show static example code instead
     if (codeOutput) {
-      const snippets = [
-        [
-          'const animate = () => {',
-          '  requestAnimationFrame(animate);',
-          '  stage.style.transform = `translateY(${offset}px)`;',
-          '};',
-        ],
-        [
-          'function buildInterface() {',
-          '  return polish + clarity + motion;',
-          '}',
-        ],
-        [
-          'useEffect(() => {',
-          '  setTheme("dark");',
-          '}, []);',
-        ],
-      ];
-
-      let snippetIndex = 0;
-      let lineIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-      let waitTimer = null;
-
-      const typeNext = () => {
-        const lines = snippets[snippetIndex];
-        const currentLine = lines[lineIndex] || '';
-
-        if (!isDeleting) {
-          charIndex += 1;
-          const renderedLines = lines.slice(0, lineIndex).concat(currentLine.slice(0, charIndex));
-          codeOutput.textContent = renderedLines.join('\n');
-
-          if (charIndex < currentLine.length) {
-            waitTimer = window.setTimeout(typeNext, 28);
-            return;
-          }
-
-          lineIndex += 1;
-          charIndex = 0;
-
-          if (lineIndex < lines.length) {
-            waitTimer = window.setTimeout(typeNext, 260);
-          } else {
-            isDeleting = true;
-            waitTimer = window.setTimeout(typeNext, 1200);
-          }
-          return;
-        }
-
-        // delete by resetting to the start of the next snippet
-        snippetIndex = (snippetIndex + 1) % snippets.length;
-        lineIndex = 0;
-        charIndex = 0;
-        isDeleting = false;
-        codeOutput.textContent = '';
-        waitTimer = window.setTimeout(typeNext, 180);
-      };
-
-      typeNext();
-
-      window.addEventListener('beforeunload', () => {
-        if (waitTimer) window.clearTimeout(waitTimer);
-      });
+      codeOutput.textContent = [
+        'const animate = () => {',
+        '  requestAnimationFrame(animate);',
+        '  stage.style.transform = `translateY(${offset}px)`;',
+        '};',
+      ].join('\n');
     }
   }
 });
