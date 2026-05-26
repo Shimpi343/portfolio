@@ -1,5 +1,8 @@
 const canvas = document.getElementById('space');
-const context = canvas.getContext('2d');
+let context = null;
+if (canvas && canvas.getContext) {
+  context = canvas.getContext('2d');
+}
 
 const state = {
   width: 0,
