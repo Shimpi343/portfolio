@@ -12,286 +12,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
-  </head>
-  <body data-topbar="a">
     <div class="page-shell">
-        <header class="topbar">
+      <header class="topbar">
         <a class="brand" href="#hero">
-          <span class="brand-mark"></span>
           <strong class="brand-name">Shimpi Kumari</strong>
         </a>
         <nav class="nav">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </nav>
-        <div style="display:flex;gap:12px;align-items:center">
-          <a class="nav-cta" href="#contact">Hire me</a>
-          <a class="social-link" href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="social-link" href="https://www.linkedin.com/in/shimpi-kumari-866a36289" target="_blank" rel="noreferrer">LinkedIn</a>
-          <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle color theme">🌙</button>
-        </div>
       </header>
 
       <main>
-        <section class="hero-grid" id="hero">
-          <article class="hero-card hero-intro reveal">
-            <p class="eyebrow">Portfolio for high-impact roles</p>
-            <h1>
-              I'm <strong>Shimpi Kumari</strong> — front-end developer &amp; data analyst.
-            </h1>
-            <p class="hero-text">
-              I build modern interfaces that feel sharp, trustworthy, and
-              memorable. This portfolio is tuned to impress recruiters with a
-              confident visual system, 3D styling, and clear proof of value.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="#projects">See work</a>
-              <a class="button button-secondary" href="#contact">Contact me</a>
-            </div>
-          </article>
-
-          <!-- visual stage removed to simplify design -->
-
-          <article class="hero-card hero-stats reveal">
-            <div class="hero-metrics">
-              <article>
-                <strong>5+</strong>
-                <span>years building interfaces</span>
-              </article>
-              <article>
-                <strong>30+</strong>
-                <span>products and landing pages</span>
-              </article>
-              <article>
-                <strong>100%</strong>
-                <span>focus on outcomes and polish</span>
-              </article>
-            </div>
-            <div class="hero-links">
-              <a class="card-link" href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="card-link" href="https://www.linkedin.com/in/shimpi-kumari-866a36289" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="card-link" href="mailto:kumarishimpi362@gmail.com">Email</a>
-            </div>
-          </article>
+        <section class="hero-card">
+          <h1>Hi — I'm Shimpi Kumari</h1>
+          <p>I build interfaces and analyze data. This is a simplified version of the portfolio.</p>
         </section>
 
-        <section class="strip reveal">
-          <p>Trusted by teams that value speed, precision, and design quality.</p>
-          <div class="strip-logos">
-            <span>Fintech</span>
-            <span>SaaS</span>
-            <span>Agency</span>
-            <span>Product</span>
-          </div>
+        <section id="projects">
+          <h2>Selected work</h2>
+          <p>Projects and links available on request.</p>
         </section>
 
-        <section class="section" id="about">
-          <div class="section-heading reveal">
-            <p class="eyebrow">About me</p>
-            <h2>Built to look premium and communicate competence fast.</h2>
-          </div>
-          <div class="about-grid">
-            <article class="panel reveal">
-              <h3>Who I am</h3>
-              <p>
-                I am a thoughtful front-end developer and designer who cares
-                about clarity, interaction, and business results. I turn rough
-                ideas into polished interfaces that feel alive.
-              </p>
-            </article>
-            <article class="panel reveal">
-              <h3>What I bring</h3>
-              <ul class="bullet-list">
-                <li>Strong visual hierarchy and layout intuition</li>
-                <li>Motion systems that add depth without distraction</li>
-                <li>Clean component thinking and scalable styling</li>
-              </ul>
-            </article>
-            <article class="panel reveal">
-              <h3>How I work</h3>
-              <p>
-                I move from structure to polish quickly, validate details on
-                real screens, and keep the final result sharp, responsive, and
-                easy to maintain.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="projects">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Selected work</p>
-            <h2>Web development and data analytics projects.</h2>
-          </div>
-
-          <div class="section-subheading reveal">
-            <h3>Web Development</h3>
-            <p class="hero-text">Full-stack and front-end projects focused on polished UI, performance, and real features.</p>
-          </div>
-
-          <div class="project-grid">
-            <article class="project-card interactive-card reveal" data-expandable>
-              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
-                <span>Open details</span>
-                <span aria-hidden="true">+</span>
-              </button>
-              <div class="project-visual project-visual-a"></div>
-              <div class="project-body">
-                <p class="project-tag">MediAI-Assist</p>
-                <h3>Healthcare consultation platform with AI features.</h3>
-                <p>
-                  Production-ready healthcare app combining disease prediction models, chatbot support, analytics dashboard, and appointment booking. Built with HTML/CSS, PHP, MySQL, and AI integration for scoring and suggestions.
-                </p>
-                <div class="card-details">
-                  <p>Highlights: appointment booking, AI triage, and a dashboard flow designed for quick patient decisions.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card interactive-card reveal" data-expandable>
-              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
-                <span>Open details</span>
-                <span aria-hidden="true">+</span>
-              </button>
-              <div class="project-visual project-visual-b"></div>
-              <div class="project-body">
-                <p class="project-tag">Career Trust</p>
-                <h3>Full-stack job aggregator with resume parsing.</h3>
-                <p>
-                  Aggregates job listings, extracts skills from resumes (PDF/DOCX), and recommends matches using TF-IDF and skill similarity. Stack: React, Node.js, Python.
-                </p>
-                <div class="card-details">
-                  <p>Highlights: resume parsing, matching logic, and job discovery in one workflow.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card interactive-card reveal" data-expandable>
-              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
-                <span>Open details</span>
-                <span aria-hidden="true">+</span>
-              </button>
-              <div class="project-visual project-visual-c"></div>
-              <div class="project-body">
-                <p class="project-tag">Interview Simulator</p>
-                <h3>AI-powered interview practice web app.</h3>
-                <p>
-                  Simulates interview scenarios with text/voice responses, evaluates answers with AI for confidence, grammar, and technical correctness. Built with React, Node.js, Express, MySQL.
-                </p>
-                <div class="card-details">
-                  <p>Highlights: guided practice, structured feedback, and a more confident interview flow.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div style="height:28px"></div>
-
-          <div class="section-subheading reveal">
-            <h3>Data Analytics</h3>
-            <p class="hero-text">Analytical projects that demonstrate practical EDA, reporting, and actionable business insights.</p>
-          </div>
-
-          <div class="project-grid">
-            <article class="project-card interactive-card reveal" data-expandable>
-              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
-                <span>Open details</span>
-                <span aria-hidden="true">+</span>
-              </button>
-              <div class="project-visual project-visual-a"></div>
-              <div class="project-body">
-                <p class="project-tag">User Engagement Analysis</p>
-                <h3>Excel & SQL analysis of engagement and retention.</h3>
-                <p>
-                  Extracted and cleaned user activity data with SQL, used Excel pivot tables and charts to surface retention drivers and produced recommendations to improve engagement.
-                </p>
-                <div class="card-details">
-                  <p>Highlights: retention patterns, segmentation, and summary reporting for stakeholders.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="project-card interactive-card reveal" data-expandable>
-              <button class="card-toggle" type="button" data-card-toggle aria-expanded="false">
-                <span>Open details</span>
-                <span aria-hidden="true">+</span>
-              </button>
-              <div class="project-visual project-visual-b"></div>
-              <div class="project-body">
-                <p class="project-tag">Sales Performance & Trend Analysis</p>
-                <h3>MS Excel based sales trend reporting.</h3>
-                <p>
-                  Analyzed monthly and quarterly sales using Excel functions and pivot charts, identified product/region performance patterns, and recommended actions to boost sales efficiency.
-                </p>
-                <div class="card-details">
-                  <p>Highlights: quarterly trends, product-level patterns, and decision-ready reporting.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="skills">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Skills</p>
-            <h2>A focused stack that keeps the interface fast and polished.</h2>
-          </div>
-          <div class="skills-layout">
-            <article class="panel reveal">
-              <h3>Core strengths</h3>
-              <div class="chip-cloud">
-                <span>UI Design</span>
-                <span>React</span>
-                <span>HTML/CSS</span>
-                <span>JavaScript</span>
-                <span>Python</span>
-                <span>SQL / MySQL</span>
-                <span>MS Excel</span>
-                <span>scikit-learn</span>
-                <span>Pandas</span>
-                <span>Data Visualization</span>
-              </div>
-            </article>
-            <article class="panel reveal timeline">
-              <h3>Career highlights</h3>
-              <div>
-                <strong>2026</strong>
-                <p>Built premium portfolio experiences and branded landing pages.</p>
-              </div>
-              <div>
-                <strong>2025</strong>
-                <p>Shipped responsive interfaces with strong performance and polish.</p>
-              </div>
-              <div>
-                <strong>2024</strong>
-                <p>Refined component systems and improved UI consistency across projects.</p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section contact-section" id="contact">
-          <div class="contact-panel reveal">
-            <div>
-              <p class="eyebrow">Contact</p>
-              <h2>Ready to make the first impression count.</h2>
-              <p>
-                I'm Shimpi Kumari — B.Tech CSE student passionate about web development and data analytics. Based in Chennai, India. Open to internships and full-time roles.
-              </p>
-              <p style="margin-top:8px">Phone: <a href="tel:+918252185077">+91-8252185077</a></p>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
-              <a class="button button-primary" href="mailto:kumarishimpi362@gmail.com">
-                kumarishimpi362@gmail.com
-              </a>
-              <div style="font-size:0.95rem;color:var(--muted);text-align:right">
-                <div>GitHub: <a href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">github.com/Shimpi343</a></div>
-                <div>LinkedIn: <a href="https://www.linkedin.com/in/shimpi-kumari-866a36289" target="_blank" rel="noreferrer">shimpi-kumari</a></div>
-              </div>
-            </div>
-          </div>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:kumarishimpi362@gmail.com">kumarishimpi362@gmail.com</a></p>
         </section>
       </main>
 
