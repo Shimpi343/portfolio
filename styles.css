@@ -442,7 +442,7 @@ body[data-theme="light"] {
   right: 16px;
   bottom: 16px;
   border-radius: 2px;
-  animation: blink 1000ms steps(1) infinite;
+  animation: none;
 }
 @keyframes blink { 0% { opacity: 1 } 50% { opacity: 0 } 100% { opacity: 1 } }
 
