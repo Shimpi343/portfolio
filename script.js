@@ -54,3 +54,49 @@ document.querySelectorAll('[data-animate]').forEach((el, i) => {
 document.body.addEventListener('keydown', (e) => {
   if (e.key === 'Tab') document.documentElement.classList.add('show-focus');
 });
+
+// Parallax background orbs and 3D tilt for project cards
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReduced) {
+  const orbLarge = document.querySelector('.orb-large');
+  const orbSmall = document.querySelector('.orb-small');
+
+  const handlePointer = (e) => {
+    const x = e.clientX ?? (e.touches && e.touches[0].clientX) ?? window.innerWidth / 2;
+    const y = e.clientY ?? (e.touches && e.touches[0].clientY) ?? window.innerHeight / 2;
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const dx = (x - cx) / cx; // -1 .. 1
+    const dy = (y - cy) / cy;
+
+    if (orbLarge) orbLarge.style.transform = `translate3d(${dx * 28}px, ${dy * -20}px, 0) scale(1.06)`;
+    if (orbSmall) orbSmall.style.transform = `translate3d(${dx * -18}px, ${dy * 14}px, 0) scale(1.03)`;
+  };
+
+  window.addEventListener('pointermove', handlePointer, { passive: true });
+
+  // subtle 3D tilt for project cards
+  document.querySelectorAll('.project').forEach((card) => {
+    let rect = null;
+    const onMove = (e) => {
+      rect = rect || card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+      const rotateY = (px - 0.5) * 10; // degrees
+      const rotateX = (0.5 - py) * 6;
+      const translateZ = 6;
+      card.style.transform = `perspective(900px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      card.style.boxShadow = '0 26px 56px rgba(3,8,20,0.58)';
+    };
+
+    const onLeave = () => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+      rect = null;
+    };
+
+    card.addEventListener('pointermove', onMove);
+    card.addEventListener('pointerleave', onLeave);
+    card.addEventListener('pointercancel', onLeave);
+  });
+}
