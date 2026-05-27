@@ -60,6 +60,7 @@ const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').mat
 if (!prefersReduced) {
   const orbLarge = document.querySelector('.orb-large');
   const orbSmall = document.querySelector('.orb-small');
+  const bgLayers = Array.from(document.querySelectorAll('.bg-layer'));
 
   const handlePointer = (e) => {
     const x = e.clientX ?? (e.touches && e.touches[0].clientX) ?? window.innerWidth / 2;
@@ -71,9 +72,34 @@ if (!prefersReduced) {
 
     if (orbLarge) orbLarge.style.transform = `translate3d(${dx * 28}px, ${dy * -20}px, 0) scale(1.06)`;
     if (orbSmall) orbSmall.style.transform = `translate3d(${dx * -18}px, ${dy * 14}px, 0) scale(1.03)`;
+    if (bgLayers && bgLayers.length) {
+      bgLayers.forEach((layer) => {
+        const depth = parseFloat(layer.dataset.depth) || 0.12;
+        const lx = dx * depth * 60; // horizontal parallax
+        const ly = dy * depth * -40; // vertical parallax
+        layer.style.transform = `translate3d(${lx}px, ${ly}px, 0) translateZ(0)`;
+      });
+    }
   };
 
   window.addEventListener('pointermove', handlePointer, { passive: true });
+
+  // scroll-based parallax: adjust layer vertical offset on scroll
+  let lastScroll = window.scrollY;
+  const onScroll = () => {
+    const s = window.scrollY || window.pageYOffset;
+    const delta = s - lastScroll;
+    lastScroll = s;
+    if (bgLayers && bgLayers.length) {
+      bgLayers.forEach((layer) => {
+        const depth = parseFloat(layer.dataset.depth) || 0.12;
+        // translateY slightly based on scroll position for depth illusion
+        const sy = (s * depth * -0.12);
+        layer.style.transform = layer.style.transform ? `${layer.style.transform} translateY(${sy}px)` : `translateY(${sy}px)`;
+      });
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // subtle 3D tilt for project cards
   document.querySelectorAll('.project').forEach((card) => {
