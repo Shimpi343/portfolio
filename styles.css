@@ -32,9 +32,11 @@ body::before{
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: linear-gradient(120deg, #0b1228 0%, #2b1b44 45%, #063b45 100%);
-  background-size: 300% 300%;
-  animation: bgShift 26s ease-in-out infinite;
+  background: radial-gradient(1200px 600px at 10% 20%, rgba(255,0,170,0.10), transparent 15%),
+              linear-gradient(120deg, #0a0012 0%, #2a002f 30%, #001f25 60%, #00182b 100%);
+  background-blend-mode: screen, normal;
+  background-size: 240% 240%, 300% 300%;
+  animation: bgShift 28s ease-in-out infinite;
   pointer-events: none;
   opacity: 0.98;
 }
@@ -137,20 +139,23 @@ body[data-theme='light'] .project{background:#fff;border-color:#eef2f6;color:#08
 
 /* Floating orbs */
 .orb {
-  width: 124px;
-  height: 124px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(143,86,255,0.95), rgba(143,86,255,0.06) 22%, transparent 62%), radial-gradient(circle at 72% 72%, rgba(72,222,208,0.12), transparent 40%);
-  filter: blur(10px);
-  opacity: 0.92;
+  background: radial-gradient(circle at 30% 30%, rgba(255,0,170,0.92), rgba(255,0,170,0.12) 22%, transparent 62%),
+              radial-gradient(circle at 72% 72%, rgba(0,255,230,0.16), transparent 40%);
+  mix-blend-mode: screen;
+  filter: blur(12px);
+  opacity: 0.98;
   pointer-events: none;
-  animation: floatOrb 9800ms ease-in-out infinite;
+  animation: floatOrb 10000ms ease-in-out infinite;
   position: fixed;
   z-index: -1;
+  box-shadow: 0 24px 120px rgba(255,0,170,0.12), 0 8px 48px rgba(0,255,230,0.06);
 }
 
-.orb-large { right: 18%; top: 8%; width: 260px; height: 260px; opacity: 0.14; filter: blur(44px); animation-duration: 11000ms }
-.orb-small { left: 10%; bottom: 10%; width: 140px; height: 140px; opacity: 0.16; filter: blur(30px); animation-duration: 8200ms }
+.orb-large { right: 18%; top: 6%; width: 320px; height: 320px; opacity: 0.18; filter: blur(56px); animation-duration: 12000ms }
+.orb-small { left: 8%; bottom: 8%; width: 160px; height: 160px; opacity: 0.20; filter: blur(36px); animation-duration: 9000ms }
 
 @media (prefers-reduced-motion: reduce) {
   .orb, body::before { animation: none !important; transform: none !important }
