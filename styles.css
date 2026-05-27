@@ -32,11 +32,11 @@ body::before{
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: linear-gradient(120deg, rgba(6,12,28,0.75), rgba(12,24,40,0.6), rgba(6,16,28,0.75));
+  background: linear-gradient(120deg, #0b1228 0%, #2b1b44 45%, #063b45 100%);
   background-size: 300% 300%;
-  animation: bgShift 22s ease infinite;
+  animation: bgShift 26s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.98;
 }
 
 @keyframes bgShift {
@@ -136,17 +136,17 @@ body[data-theme='light'] .project{background:#fff;border-color:#eef2f6;color:#08
   width: 124px;
   height: 124px;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.06) 20%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(111,179,255,0.10), transparent 40%);
-  filter: blur(8px);
-  opacity: 0.75;
+  background: radial-gradient(circle at 30% 30%, rgba(143,86,255,0.95), rgba(143,86,255,0.06) 22%, transparent 62%), radial-gradient(circle at 72% 72%, rgba(72,222,208,0.12), transparent 40%);
+  filter: blur(10px);
+  opacity: 0.92;
   pointer-events: none;
-  animation: floatOrb 8200ms ease-in-out infinite;
+  animation: floatOrb 9800ms ease-in-out infinite;
   position: fixed;
   z-index: -1;
 }
 
-.orb-large { right: 22%; top: 8%; width: 220px; height: 220px; opacity: 0.12; filter: blur(36px); animation-duration: 9000ms }
-.orb-small { left: 14%; bottom: 12%; width: 120px; height: 120px; opacity: 0.14; filter: blur(28px); animation-duration: 7000ms }
+.orb-large { right: 18%; top: 8%; width: 260px; height: 260px; opacity: 0.14; filter: blur(44px); animation-duration: 11000ms }
+.orb-small { left: 10%; bottom: 10%; width: 140px; height: 140px; opacity: 0.16; filter: blur(30px); animation-duration: 8200ms }
 
 @keyframes floatOrb {
   0% { transform: translate3d(0,0,0) scale(1) }
