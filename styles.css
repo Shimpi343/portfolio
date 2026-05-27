@@ -82,6 +82,10 @@ body::before{
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--gap);margin-top:22px;align-items:start}
 .project{display:flex;flex-direction:column;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.04);box-shadow:0 12px 30px rgba(3,8,20,0.45);transition:transform var(--transition) ease,box-shadow var(--transition) ease}
 .project:hover{transform:translateY(var(--card-lift));box-shadow:0 22px 48px rgba(3,8,20,0.5)}
+.project{will-change:transform,box-shadow}
+
+/* make 3D transforms smoother */
+.project { transition: transform 360ms cubic-bezier(.2,.9,.3,1), box-shadow 360ms cubic-bezier(.2,.9,.3,1) }
 .project-media{height:140px;background-size:cover;background-position:center}
 .project-media img,
 .project-media-img{width:100%;height:100%;object-fit:cover;display:block}
@@ -147,6 +151,10 @@ body[data-theme='light'] .project{background:#fff;border-color:#eef2f6;color:#08
 
 .orb-large { right: 18%; top: 8%; width: 260px; height: 260px; opacity: 0.14; filter: blur(44px); animation-duration: 11000ms }
 .orb-small { left: 10%; bottom: 10%; width: 140px; height: 140px; opacity: 0.16; filter: blur(30px); animation-duration: 8200ms }
+
+@media (prefers-reduced-motion: reduce) {
+  .orb, body::before { animation: none !important; transform: none !important }
+}
 
 @keyframes floatOrb {
   0% { transform: translate3d(0,0,0) scale(1) }
