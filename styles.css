@@ -26,6 +26,25 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
+/* Animated subtle gradient background layer */
+body::before{
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(120deg, rgba(6,12,28,0.75), rgba(12,24,40,0.6), rgba(6,16,28,0.75));
+  background-size: 300% 300%;
+  animation: bgShift 22s ease infinite;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .page-shell{max-width:var(--max-width);margin:var(--space-lg) auto;padding:32px}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .brand-name{font-weight:800;color:#fff}
@@ -122,6 +141,8 @@ body[data-theme='light'] .project{background:#fff;border-color:#eef2f6;color:#08
   opacity: 0.75;
   pointer-events: none;
   animation: floatOrb 8200ms ease-in-out infinite;
+  position: fixed;
+  z-index: -1;
 }
 
 .orb-large { right: 22%; top: 8%; width: 220px; height: 220px; opacity: 0.12; filter: blur(36px); animation-duration: 9000ms }
