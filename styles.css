@@ -319,8 +319,8 @@ body[data-theme='light'] .footer{border-top-color:rgba(15,23,42,0.08)}
 .panel h3,
 .project-body h3 {
   margin: 0 0 12px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.45rem;
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
 }
 
 .bullet-list {
