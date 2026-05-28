@@ -55,6 +55,33 @@ document.body.addEventListener('keydown', (e) => {
   if (e.key === 'Tab') document.documentElement.classList.add('show-focus');
 });
 
+// Responsive panel toggle
+const panelToggle = document.querySelector('.panel-toggle');
+const heroPanel = document.querySelector('.hero-panel');
+if (panelToggle && heroPanel) {
+  panelToggle.addEventListener('click', (e) => {
+    const isOpen = heroPanel.classList.toggle('open');
+    panelToggle.setAttribute('aria-expanded', String(isOpen));
+    // allow clicking outside to close
+    if (isOpen) {
+      document.body.classList.add('panel-open');
+      setTimeout(() => {
+        const outsideClose = (ev) => {
+          if (!heroPanel.contains(ev.target) && !panelToggle.contains(ev.target)) {
+            heroPanel.classList.remove('open');
+            panelToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('panel-open');
+            document.removeEventListener('pointerdown', outsideClose);
+          }
+        };
+        document.addEventListener('pointerdown', outsideClose);
+      }, 0);
+    } else {
+      document.body.classList.remove('panel-open');
+    }
+  });
+}
+
 // Parallax background orbs and 3D tilt for project cards
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 if (!prefersReduced) {
