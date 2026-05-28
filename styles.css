@@ -8,11 +8,11 @@
   --bg-2: #07101f;
   --bg-3: #120f2a;
   --panel: rgba(8, 12, 24, 0.74);
-  --muted: #a6b3d4;
-  --text: #f5f7ff;
-  --accent: #7ce8d6;
-  --accent-2: #8ab4ff;
-  --accent-3: #c08cff;
+  --muted: #bfd0ff;
+  --text: #f8fbff;
+  --accent: #8ef0df;
+  --accent-2: #a5c7ff;
+  --accent-3: #d1a4ff;
   --glass: rgba(255,255,255,0.06);
   --max-width: 1100px;
   --radius: 18px;
@@ -86,16 +86,16 @@ body::after{
 .brand-name{font-family:var(--font-heading);font-weight:700;letter-spacing:0.01em;color:#fff;font-size:1.08rem}
 .nav{display:flex;gap:18px}
 .nav a{color:var(--muted);text-decoration:none;font-weight:700;letter-spacing:0.02em;transition:color var(--transition) ease,transform var(--transition) ease}
-.nav a:hover{color:var(--text);transform:translateY(-1px)}
+.nav a:hover{color:#ffffff;transform:translateY(-1px)}
 .actions{display:flex;gap:8px}
 
 /* Hero */
 .hero{padding:52px 0 36px}
 .hero-inner{display:flex;gap:32px;align-items:stretch}
 .hero-copy{flex:1}
-.eyebrow{color:var(--accent-2);text-transform:uppercase;letter-spacing:0.18em;font-weight:800;font-size:0.76rem}
+.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:0.18em;font-weight:800;font-size:0.76rem}
 .hero h1{font-family:var(--font-heading);font-size:clamp(3rem, 5vw, 5rem);line-height:0.95;margin:12px 0 12px;letter-spacing:-0.03em;max-width:11ch}
-.accent{color:var(--accent)}
+.accent{color:var(--accent-2)}
 .lead{color:var(--muted);max-width:60ch;font-size:1.06rem;line-height:1.8}
 .cta-row{margin-top:18px;display:flex;gap:12px}
 .btn-primary{background:linear-gradient(135deg,var(--accent),#ffbc8a 55%,var(--accent-2));color:#121421;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:800;letter-spacing:0.01em;transition:transform var(--transition) ease,box-shadow var(--transition) ease,filter var(--transition) ease;box-shadow:0 14px 28px rgba(255,143,95,0.22)}
@@ -106,7 +106,7 @@ body::after{
 .hero-illustration{width:100%;max-width:420px;border-radius:14px;box-shadow:0 14px 32px rgba(8,12,20,0.42);opacity:0.98}
 .hero-card{width:320px;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);transform:translateY(6px)}
 .card-inner h3{margin:0 0 8px}
-.small-link{color:var(--accent-2);text-decoration:none;font-weight:700}
+.small-link{color:var(--accent);text-decoration:none;font-weight:700}
 
 /* Image inside floating hero card */
 .card-photo{width:100%;height:140px;object-fit:cover;border-radius:10px;margin-bottom:12px;display:block;border:1px solid rgba(255,255,255,0.04)}
@@ -133,7 +133,7 @@ body::after{
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .chips span{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:9px 12px;border-radius:999px;color:var(--text);font-weight:700;backdrop-filter:blur(10px)}
 
-.contact p a{color:var(--accent);text-decoration:none}
+.contact p a{color:var(--accent-2);text-decoration:none}
 .links-row{display:flex;gap:12px;margin-top:8px}
 .footer{border-top:1px solid rgba(255,255,255,0.06);padding:18px 0;margin-top:28px;color:var(--muted)}
 
@@ -165,13 +165,16 @@ body[data-theme='light']{
   color:#141a2f;
 }
 body[data-theme='light'] .topbar{background:rgba(255,255,255,0.72);border-color:rgba(15,23,42,0.08);box-shadow:0 18px 45px rgba(15,23,42,0.08)}
-body[data-theme='light'] .nav a{color:#44536d}
-body[data-theme='light'] .muted{color:#5c6d86}
+body[data-theme='light'] .nav a{color:#31476b}
+body[data-theme='light'] .muted{color:#4d607f}
 body[data-theme='light'] .project{background:rgba(255,255,255,0.74);border-color:rgba(15,23,42,0.08);color:#081226;box-shadow:0 18px 42px rgba(15,23,42,0.08)}
 body[data-theme='light'] .chips span,
 body[data-theme='light'] .project-actions .small-link,
 body[data-theme='light'] .btn-outline,
 body[data-theme='light'] .btn-ghost{background:rgba(255,255,255,0.65);border-color:rgba(15,23,42,0.08);color:#15213d}
+body[data-theme='light'] .accent{color:#1f4ea0}
+body[data-theme='light'] .eyebrow{color:#0e7b69}
+body[data-theme='light'] .contact p a{color:#1f4ea0}
 body[data-theme='light'] .footer{border-top-color:rgba(15,23,42,0.08)}
 
 
