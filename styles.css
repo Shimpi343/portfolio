@@ -233,7 +233,7 @@ body[data-theme='light'] .footer{border-top-color:rgba(15,23,42,0.08)}
 .floating-card strong {
   display: block;
   margin-top: 10px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.02rem;
   line-height: 1.5;
 }
@@ -764,7 +764,7 @@ body[data-theme='light'] .footer{border-top-color:rgba(15,23,42,0.08)}
   padding: 10px 12px;
   border-radius: 10px;
   backdrop-filter: blur(6px);
-  font-family: Inter, sans-serif;
+  font-family: var(--font-body);
   box-shadow: 0 8px 24px rgba(2,6,14,0.45);
 }
 #topbar-controls .controls-inner { display:flex;flex-direction:column;gap:8px;align-items:flex-start }
