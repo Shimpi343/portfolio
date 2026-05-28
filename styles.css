@@ -482,7 +482,7 @@ body[data-theme='light'] .footer{border-top-color:rgba(15,23,42,0.08)}
 .reveal {
   opacity: 0;
   transform: translateX(-18px);
-  transition: transform 620ms cubic-bezier(.22,.9,.36,1), opacity 620ms ease;}
+  transition: transform 620ms cubic-bezier(.22,.9,.36,1), opacity 620ms ease;
   will-change: transform, opacity;
 }
 
