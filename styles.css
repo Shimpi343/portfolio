@@ -90,7 +90,7 @@ body::after{
 .actions{display:flex;gap:8px}
 
 /* Hero */
-.hero{padding:52px 0 36px}
+.hero{padding:52px 0 36px;position:relative;overflow:hidden}
 .hero-inner{display:flex;gap:32px;align-items:stretch}
 .hero-copy{flex:1}
 .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:0.18em;font-weight:800;font-size:0.76rem}
@@ -105,6 +105,26 @@ body::after{
 .hero-visual{display:flex;flex-direction:column;align-items:flex-end;gap:16px;position:relative}
 .hero-illustration{width:100%;max-width:420px;border-radius:14px;box-shadow:0 14px 32px rgba(8,12,20,0.42);opacity:0.98}
 .hero-card{width:320px;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);transform:translateY(6px)}
+
+/* Background video for hero */
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+  filter:brightness(0.62) saturate(0.95);
+}
+.hero::before{
+  /* subtle gradient overlay to keep text readable */
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(180deg, rgba(2,4,10,0.36), rgba(2,4,10,0.18));
+  pointer-events:none;
+}
 .card-inner h3{margin:0 0 8px}
 .small-link{color:var(--accent);text-decoration:none;font-weight:700}
 
