@@ -176,6 +176,18 @@ body::after{
   filter:brightness(0.62) saturate(0.95);
 }
 
+/* Static hero background (user image placed at images/hero-bg.jpg) */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  background-image: url('images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter:brightness(0.6) contrast(1.02) saturate(0.95);
+}
+
 /* subtle hex pattern overlay (very low opacity) */
 .hex-bg{
   position:fixed;inset:0;z-index:-1;opacity:0.06;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='174' viewBox='0 0 100 87'><defs><pattern id='p' width='25' height='21.5' patternUnits='userSpaceOnUse'><polygon points='12.5,0 25,6.25 25,18.75 12.5,25 0,18.75 0,6.25' fill='none' stroke='%23ffffff' stroke-opacity='0.12' stroke-width='0.8'/></pattern></defs><rect width='100%' height='100%' fill='url(%23p)'/></svg>");background-repeat:repeat;background-size:220px 190px;mix-blend-mode:overlay}
