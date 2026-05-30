@@ -161,6 +161,21 @@ body::after{
 .hero-card-large h1{font-family:var(--font-heading);font-size:clamp(3.2rem, 7vw, 6.4rem);line-height:0.95;margin:6px 0}
 .hero-card-large .lead{font-size:1.12rem}
 
+/* animated gradient name */
+.name-gradient{background:linear-gradient(90deg,#8ef0df,#a5c7ff,#d1a4ff);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientShift 4.5s ease infinite}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+/* role rotator (typed) */
+.rotator{font-weight:700;color:var(--muted);font-size:1.02rem;margin-top:6px;min-height:1.3em}
+.rotator .cursor{display:inline-block;width:10px;opacity:1;animation:blink 900ms steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* vertical social icons next to hero */
+.social-vertical{position:fixed;right:28px;top:42vh;display:flex;flex-direction:column;gap:12px;z-index:80}
+.social-vertical a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);color:var(--text);text-decoration:none;font-size:20px;box-shadow:0 8px 24px rgba(2,6,14,0.3);transition:transform 220ms ease,background 220ms ease}
+.social-vertical a:hover{transform:translateY(-4px);background:linear-gradient(135deg,rgba(138,180,255,0.12),rgba(124,232,214,0.08))}
+
+
 /* Background video for hero */
 .hero-video{
   position:absolute;

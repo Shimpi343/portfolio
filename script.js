@@ -50,6 +50,29 @@ document.querySelectorAll('[data-animate]').forEach((el, i) => {
   reveal.observe(el);
 });
 
+// role rotator (type + delete loop)
+(() => {
+  const roles = ['Front-end Developer', 'Data Analyst', 'UI Designer'];
+  const el = document.getElementById('role-rotator');
+  if (!el || !roles.length) return;
+  let ri = 0; let ci = 0; let deleting = false;
+  const speed = 90; const pause = 1400;
+  const tick = () => {
+    const txt = roles[ri];
+    if (!deleting) {
+      ci++;
+      el.textContent = txt.slice(0, ci);
+      if (ci === txt.length) { deleting = true; setTimeout(tick, pause); return }
+    } else {
+      ci--;
+      el.textContent = txt.slice(0, ci);
+      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length }
+    }
+    setTimeout(tick, deleting ? speed / 1.5 : speed);
+  };
+  tick();
+})();
+
 // small accessibility: focus outlines for keyboard users
 document.body.addEventListener('keydown', (e) => {
   if (e.key === 'Tab') document.documentElement.classList.add('show-focus');
