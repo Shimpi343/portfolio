@@ -161,6 +161,17 @@ body::after{
 .hero-card-large h1{font-family:var(--font-heading);font-size:clamp(3.2rem, 7vw, 6.4rem);line-height:0.95;margin:6px 0}
 .hero-card-large .lead{font-size:1.12rem}
 
+/* larger typographic scale and improved spacing */
+html{font-size:18px}
+body{line-height:1.6}
+h1{letter-spacing:-0.02em}
+h2{font-size:1.75rem;margin-bottom:12px}
+h3{font-size:1.15rem}
+p{font-size:1rem}
+.page-shell{padding:48px}
+.section{padding-top:84px}
+.projects-grid{gap:26px}
+
 /* animated gradient name */
 .name-gradient{background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientShift 4.5s ease infinite}
 @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
