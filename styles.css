@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700;800&family=Fira+Code:wght@400;500;700&display=swap');
 
 :root{
-  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-heading: 'Playfair Display', 'Fraunces', Georgia, serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-  --bg-1: #02040a;
-  --bg-2: #07101f;
-  --bg-3: #120f2a;
-  --panel: rgba(8, 12, 24, 0.74);
-  --muted: #bfd0ff;
-  --text: #f8fbff;
-  --accent: #8ef0df;
-  --accent-2: #a5c7ff;
-  --accent-3: #d1a4ff;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Poppins', 'Playfair Display', Georgia, serif;
+  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  --bg-1: #08020a;
+  --bg-2: #0b1530;
+  --bg-3: #101229;
+  --panel: rgba(10, 14, 28, 0.76);
+  --muted: #bfc9e8;
+  --text: #f6f8fb;
+  --accent: #ff6b6b;
+  --accent-2: #7c5cff;
+  --accent-3: #2ce6c6;
   --glass: rgba(255,255,255,0.06);
   --max-width: 1100px;
   --radius: 18px;
@@ -162,7 +162,7 @@ body::after{
 .hero-card-large .lead{font-size:1.12rem}
 
 /* animated gradient name */
-.name-gradient{background:linear-gradient(90deg,#8ef0df,#a5c7ff,#d1a4ff);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientShift 4.5s ease infinite}
+.name-gradient{background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradientShift 4.5s ease infinite}
 @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
 /* role rotator (typed) */
