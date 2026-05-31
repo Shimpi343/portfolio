@@ -3,159 +3,482 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Shimpi Kumari — Front-end developer & data analyst" />
-    <meta name="theme-color" content="#10142a" />
-    <title>Shimpi Kumari — Portfolio</title>
+    <meta name="description" content="Shimpi Kumari - Futuristic portfolio for a product-minded full stack developer and UI/UX designer." />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark light" />
+    <meta property="og:title" content="Shimpi Kumari | Product Engineer Portfolio" />
+    <meta property="og:description" content="A cinematic, interactive personal portfolio with 3D motion, premium UI, and modern front-end storytelling." />
+    <meta property="og:type" content="website" />
+    <title>Shimpi Kumari | Product Engineer Portfolio</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700;800&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.16/dist/lenis.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script defer src="script.js"></script>
   </head>
   <body>
-    <!-- 3D background layers (depth parallax) -->
-    <div class="bg-3d" aria-hidden="true">
-      <div class="bg-layer" data-depth="0.08"></div>
-      <div class="bg-layer" data-depth="0.18"></div>
-      <div class="bg-layer" data-depth="0.32"></div>
-      <div class="bg-layer" data-depth="0.56"></div>
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__ring"></div>
+      <div class="loader__brand">SK</div>
     </div>
-    <div class="orb orb-large" aria-hidden="true"></div>
-    <div class="orb orb-small" aria-hidden="true"></div>
-    <div class="page-shell">
-      <header class="topbar">
-        <a class="brand" href="#hero"><strong class="brand-name">Shimpi Kumari</strong></a>
-        <nav class="nav" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="actions">
-          <button id="theme-toggle" class="btn-ghost" aria-label="Toggle theme">🌙</button>
-        </div>
-      </header>
 
-      <main>
-        <section class="hero" id="hero">
-          <!-- Page background for hero. Place your image at `images/hero-bg.jpg` -->
-          <div class="hero-bg" aria-hidden="true"></div>
-          <!-- Animated GIF background (hosted fallback) -->
-          <img class="hero-gif" src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Animated background" loading="lazy">
-          <div class="hero-inner">
-            <aside class="hero-panel" aria-hidden="true">
-              <div class="panel-inner">
-                <!-- panel logo removed as requested -->
-                <button class="panel-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-                <nav class="panel-nav" aria-label="Quick links">
-                  <a href="#about">About</a>
-                  <a href="#contact">Contact</a>
-                </nav>
-              </div>
-            </aside>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor cursor--trail" id="cursor-trail" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 
-            <div class="hero-card-large">
-              <div class="hero-copy">
-                <p class="eyebrow">Front-end · Data · Design</p>
-                <h1>Hi — I'm <span class="name-gradient">Shimpi Kumari</span></h1>
-                <p id="role-rotator" class="lead rotator" aria-live="polite">Front-end Developer</p>
-                <div class="cta-row">
-                  <a class="btn-primary" href="#projects">See my work</a>
-                  <a class="btn-outline" href="#contact">Contact me</a>
-                </div>
-                <div class="social-vertical" aria-hidden="false">
-                  <a href="https://github.com/Shimpi343" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">🐱</a>
-                  <a href="https://www.linkedin.com/in/shimpi-kumari-866a36289" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">🔗</a>
-                  <a href="mailto:kumarishimpi362@gmail.com" aria-label="Email" title="Email">✉️</a>
-                </div>
+    <header class="site-header">
+      <a class="brand" href="#hero" aria-label="Shimpi Kumari home">
+        <span class="brand-mark">SK</span>
+        <span class="brand-text">
+          <strong>Shimpi Kumari</strong>
+          <small>Product Engineer</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation" id="site-nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="music-toggle" type="button" aria-label="Toggle background music">♪</button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </header>
+
+    <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </aside>
+
+    <main>
+      <section class="hero section-shell" id="hero">
+        <div class="hero__glow hero__glow--one" aria-hidden="true"></div>
+        <div class="hero__glow hero__glow--two" aria-hidden="true"></div>
+        <canvas class="hero__particles" id="particles-canvas" aria-hidden="true"></canvas>
+
+        <div class="hero__content">
+          <div class="hero__copy">
+            <p class="eyebrow reveal">Premium portfolio / 2026</p>
+            <h1 class="hero__title reveal">
+              Designing products that feel
+              <span class="gradient-text">inevitable</span>.
+            </h1>
+            <p class="hero__subtitle reveal">
+              I am Shimpi Kumari, a full stack developer building polished interfaces, scalable web platforms, and motion-rich experiences that help brands feel modern, fast, and memorable.
+            </p>
+
+            <div class="typed-line reveal" aria-live="polite">
+              <span class="typed-line__label">I craft</span>
+              <span id="typewriter" class="typed-line__value"></span>
+            </div>
+
+            <div class="hero__cta reveal">
+              <a class="btn btn--primary magnetic" href="#projects">View selected work</a>
+              <a class="btn btn--secondary magnetic" href="#contact">Start a project</a>
+            </div>
+
+            <div class="hero__social reveal" aria-label="Social links">
+              <a href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/shimpi-kumari-866a36289" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="mailto:kumarishimpi362@gmail.com">Email</a>
+            </div>
+
+            <div class="code-snip reveal" aria-label="Code snippet">
+              <div class="code-snip__bar">
+                <span></span><span></span><span></span>
               </div>
+              <pre><code>const portfolio = {
+  focus: ['UI systems', '3D motion', 'revenue-ready UX'],
+  stack: ['HTML', 'CSS', 'JavaScript', 'Three.js', 'GSAP'],
+};</code></pre>
             </div>
           </div>
-        </section>
 
-        <section class="section" id="projects">
-          <div class="section-head">
-            <h2>Selected projects</h2>
-            <p class="muted">A few highlights — links available on request.</p>
+          <div class="hero__visual reveal">
+            <div class="hero-card hero-card--stats glass">
+              <div class="stat">
+                <strong data-counter="5">0</strong>
+                <span>Years building interfaces</span>
+              </div>
+              <div class="stat">
+                <strong data-counter="42">0</strong>
+                <span>Projects shipped</span>
+              </div>
+              <div class="stat">
+                <strong data-counter="18">0</strong>
+                <span>Technologies mastered</span>
+              </div>
+            </div>
+
+            <div class="hero-card hero-card--orb glass">
+              <div class="orb-label">
+                <span>Live 3D motion</span>
+                <small>Drag your cursor around the scene</small>
+              </div>
+              <div id="three-scene" class="three-scene" aria-hidden="true"></div>
+            </div>
           </div>
-
-          <div class="projects-grid">
-            <!-- Personal Portfolio Redesign card removed -->
-
-            <article class="project" data-animate>
-              <div class="project-media">
-                <img src="https://windowsthemepack.com/themepack/_cool_themes/doctor-theme/1.jpg" alt="MediAI-Assist screenshot" class="project-media-img" onerror="this.onerror=null;this.src='images/snapshot.svg'">
-              </div>
-              <div class="project-body">
-                <h3>MediAI-Assist</h3>
-                <p>Healthcare consultation platform with scheduling, triage, and analytics.</p>
-                <div class="project-actions">
-                  <a class="small-link" href="#">Live</a>
-                  <a class="small-link" href="https://github.com/Shimpi343">Source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project" data-animate>
-              <div class="project-media">
-                <img src="https://wallpaperaccess.com/full/13420114.png" alt="Career Trust screenshot" class="project-media-img" onerror="this.onerror=null;this.src='images/snapshot.svg'">
-              </div>
-              <div class="project-body">
-                <h3>Career Trust</h3>
-                <p>Job aggregator with resume parsing and skill matching.</p>
-                <div class="project-actions">
-                  <a class="small-link" href="#">Demo</a>
-                  <a class="small-link" href="https://github.com/Shimpi343">Source</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="project" data-animate>
-              <div class="project-media">
-                <img src="https://thegtminterview.com/assets/image-DRCc63fc.png" alt="Interview Simulator screenshot" class="project-media-img" onerror="this.onerror=null;this.src='images/snapshot.svg'">
-              </div>
-              <div class="project-body">
-                <h3>Interview Simulator</h3>
-                <p>Practice interviews with feedback and scoring.</p>
-                <div class="project-actions">
-                  <a class="small-link" href="#">Try</a>
-                  <a class="small-link" href="https://github.com/Shimpi343">Source</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="skills">
-          <h2>Skills</h2>
-          <div class="chips">
-            <span>HTML & CSS</span>
-            <span>JavaScript</span>
-            <span>React</span>
-            <span>Data Analysis</span>
-            <span>SQL</span>
-            <span>Python</span>
-          </div>
-        </section>
-
-        <section class="section contact" id="contact">
-          <h2>Contact</h2>
-          <p class="muted">I’m open to internships and full‑time roles. Based in Chennai, India.</p>
-          <p>Email: <a href="mailto:kumarishimpi362@gmail.com">kumarishimpi362@gmail.com</a></p>
-          <div class="links-row">
-            <a class="small-link" href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="small-link" href="https://www.linkedin.com/in/shimpi-kumari-866a36289" target="_blank" rel="noreferrer">LinkedIn</a>
-          </div>
-        </section>
-      </main>
-
-      <footer class="footer">
-        <div class="page-shell-inner">
-          <p>© <strong>Shimpi Kumari</strong> — Built with care.</p>
         </div>
-      </footer>
-    </div>
+      </section>
+
+      <section class="section-shell section-grid" id="about">
+        <div class="section-heading reveal">
+          <p class="eyebrow">About</p>
+          <h2>Product thinking, visual polish, and technical precision.</h2>
+        </div>
+
+        <div class="about-layout">
+          <article class="about-card glass reveal">
+            <div class="about-card__image">
+              <div class="avatar">
+                <span>Shimpi</span>
+              </div>
+            </div>
+            <div class="about-card__copy">
+              <h3>Developer, designer, systems thinker.</h3>
+              <p>
+                I build interfaces that feel clean at first glance and rich on interaction. My work blends engineering discipline with creative direction so products are both elegant and usable.
+              </p>
+              <p>
+                I care about accessibility, motion hierarchy, and performance budgets. The result is a portfolio of experiences that ship well and age gracefully.
+              </p>
+            </div>
+          </article>
+
+          <div class="timeline glass reveal">
+            <div class="timeline__item">
+              <span>2020</span>
+              <h3>Entered web development</h3>
+              <p>Started building landing pages and small business websites with a focus on responsive UI and clean structure.</p>
+            </div>
+            <div class="timeline__item">
+              <span>2022</span>
+              <h3>Expanded into product work</h3>
+              <p>Worked on dashboards, authentication flows, and content systems that required stronger UX decisions and reusable components.</p>
+            </div>
+            <div class="timeline__item">
+              <span>2026</span>
+              <h3>Designing premium digital experiences</h3>
+              <p>Now focused on motion systems, 3D storytelling, and high-performance front ends for ambitious brands and personal products.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" id="skills">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Skills</p>
+          <h2>Structured around categories, not buzzwords.</h2>
+        </div>
+
+        <div class="skill-tabs reveal" role="tablist" aria-label="Skill categories">
+          <button class="skill-tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="skill-tab" data-filter="frontend" role="tab">Frontend</button>
+          <button class="skill-tab" data-filter="motion" role="tab">Motion</button>
+          <button class="skill-tab" data-filter="systems" role="tab">Systems</button>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card glass reveal" data-category="frontend motion">
+            <div class="skill-card__top">
+              <span>01</span>
+              <i>UI</i>
+            </div>
+            <h3>Interface craft</h3>
+            <p>HTML, modern CSS architecture, design tokens, accessibility-first layouts, responsive systems.</p>
+            <div class="skill-meter" data-level="96"><span></span></div>
+          </article>
+
+          <article class="skill-card glass reveal" data-category="frontend systems">
+            <div class="skill-card__top">
+              <span>02</span>
+              <i>JS</i>
+            </div>
+            <h3>Application logic</h3>
+            <p>ES6+, stateful interactions, API orchestration, form validation, interactive content, clean component logic.</p>
+            <div class="skill-meter" data-level="92"><span></span></div>
+          </article>
+
+          <article class="skill-card glass reveal" data-category="motion">
+            <div class="skill-card__top">
+              <span>03</span>
+              <i>FX</i>
+            </div>
+            <h3>Motion direction</h3>
+            <p>GSAP, scroll choreography, parallax depth, cinematic reveals, motion timing, and hover physics.</p>
+            <div class="skill-meter" data-level="89"><span></span></div>
+          </article>
+
+          <article class="skill-card glass reveal" data-category="systems frontend">
+            <div class="skill-card__top">
+              <span>04</span>
+              <i>UX</i>
+            </div>
+            <h3>Design systems</h3>
+            <p>Reusable patterns, scalable spacing, atomic cards, component states, and consistent interaction language.</p>
+            <div class="skill-meter" data-level="94"><span></span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell" id="projects">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Projects</p>
+          <h2>Selected work with premium layout, live intent, and case-study clarity.</h2>
+        </div>
+
+        <div class="filter-row reveal" role="tablist" aria-label="Project filters">
+          <button class="filter-btn is-active" data-project-filter="all">All</button>
+          <button class="filter-btn" data-project-filter="web">Web apps</button>
+          <button class="filter-btn" data-project-filter="dashboard">Dashboards</button>
+          <button class="filter-btn" data-project-filter="design">Design systems</button>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card glass reveal" data-project="web">
+            <div class="project-card__media">
+              <img src="images/snapshot.svg" alt="Pulse OS screenshot placeholder" />
+              <span class="project-badge">Featured</span>
+            </div>
+            <div class="project-card__body">
+              <div>
+                <h3>Pulse OS</h3>
+                <p>Product operations dashboard with analytics, workflow automation, and a modular design system for a SaaS startup.</p>
+              </div>
+              <div class="project-tags">
+                <span>Analytics</span><span>Automation</span><span>Design system</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact">Live demo</a>
+                <a href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal" data-project="dashboard">
+            <div class="project-card__media">
+              <img src="images/snapshot.svg" alt="Atlas Finance dashboard placeholder" />
+              <span class="project-badge">Case study</span>
+            </div>
+            <div class="project-card__body">
+              <div>
+                <h3>Atlas Finance</h3>
+                <p>Modern banking dashboard focused on account visibility, transaction health, and secure onboarding flows.</p>
+              </div>
+              <div class="project-tags">
+                <span>Fintech</span><span>Security UI</span><span>Dashboard</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact">Live demo</a>
+                <a href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal" data-project="design">
+            <div class="project-card__media">
+              <img src="images/snapshot.svg" alt="Nova design system placeholder" />
+              <span class="project-badge">System</span>
+            </div>
+            <div class="project-card__body">
+              <div>
+                <h3>Nova Design System</h3>
+                <p>A visual language toolkit with tokens, components, spacing rules, and motion recipes for rapid product shipping.</p>
+              </div>
+              <div class="project-tags">
+                <span>Tokens</span><span>Motion</span><span>Components</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact">Live demo</a>
+                <a href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal" data-project="web">
+            <div class="project-card__media">
+              <img src="images/snapshot.svg" alt="CareerLink platform placeholder" />
+              <span class="project-badge">Launch</span>
+            </div>
+            <div class="project-card__body">
+              <div>
+                <h3>CareerLink</h3>
+                <p>A recruitment platform blending job discovery, profile matching, and polished onboarding for candidates and teams.</p>
+              </div>
+              <div class="project-tags">
+                <span>Recruitment</span><span>Matching</span><span>Web app</span>
+              </div>
+              <div class="project-links">
+                <a href="#contact">Live demo</a>
+                <a href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell" id="experience">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Experience</p>
+          <h2>Career highlights delivered through an animated vertical timeline.</h2>
+        </div>
+
+        <div class="experience-grid">
+          <div class="experience-timeline glass reveal">
+            <article class="experience-item">
+              <span>Lead Frontend Developer</span>
+              <h3>Studio Prism</h3>
+              <p>Directed interface systems for landing pages, marketing sites, and internal tools with performance and conversion in mind.</p>
+            </article>
+            <article class="experience-item">
+              <span>UI Engineer</span>
+              <h3>Northstar Labs</h3>
+              <p>Built component libraries, interactive onboarding funnels, and motion standards that elevated perceived product quality.</p>
+            </article>
+            <article class="experience-item">
+              <span>Creative Developer</span>
+              <h3>Freelance</h3>
+              <p>Designed premium portfolio sites, product showcases, and launch pages with a strong emphasis on storytelling.</p>
+            </article>
+          </div>
+
+          <div class="experience-highlights">
+            <div class="highlight-card glass reveal">
+              <strong>98%</strong>
+              <span>Client satisfaction on launch-quality work</span>
+            </div>
+            <div class="highlight-card glass reveal">
+              <strong>12</strong>
+              <span>Reusable systems shipped across products</span>
+            </div>
+            <div class="highlight-card glass reveal">
+              <strong>24h</strong>
+              <span>Typical turnaround for high-fidelity iterations</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" id="services">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Services</p>
+          <h2>High-end execution across strategy, design, and implementation.</h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card glass reveal"><h3>Web Development</h3><p>Fast, scalable, maintainable sites and apps that are easy to evolve.</p></article>
+          <article class="service-card glass reveal"><h3>Frontend Development</h3><p>Responsive UI systems, component logic, and robust client-side interactions.</p></article>
+          <article class="service-card glass reveal"><h3>Backend Development</h3><p>API integration, data flow design, and structured application architecture.</p></article>
+          <article class="service-card glass reveal"><h3>UI/UX Design</h3><p>Clear hierarchy, elegant motion, and user journeys that reduce friction.</p></article>
+          <article class="service-card glass reveal"><h3>Responsive Design</h3><p>Layouts that adapt beautifully from phone screens to ultrawide displays.</p></article>
+          <article class="service-card glass reveal"><h3>API Integration</h3><p>Cleanly connected experiences with well-managed loading, states, and errors.</p></article>
+        </div>
+      </section>
+
+      <section class="section-shell" id="testimonials">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Testimonials</p>
+          <h2>What collaborators say after the launch window.</h2>
+        </div>
+
+        <div class="testimonial-slider glass reveal" aria-roledescription="carousel">
+          <div class="testimonial-track" id="testimonial-track">
+            <figure class="testimonial is-active">
+              <blockquote>"Shimpi brought a rare mix of visual taste and engineering rigor. The final product looked premium and shipped on time."</blockquote>
+              <figcaption>Alina Park, Product Lead</figcaption>
+            </figure>
+            <figure class="testimonial">
+              <blockquote>"Every interaction felt intentional. The motion system and component structure made the whole app feel expensive."</blockquote>
+              <figcaption>Rohan Mehta, Founder</figcaption>
+            </figure>
+            <figure class="testimonial">
+              <blockquote>"The portfolio itself is proof of skill: polished, responsive, and confident without being noisy."</blockquote>
+              <figcaption>Maya Chen, Design Director</figcaption>
+            </figure>
+          </div>
+          <div class="testimonial-controls">
+            <button type="button" class="dot is-active" data-testimonial="0" aria-label="Show testimonial 1"></button>
+            <button type="button" class="dot" data-testimonial="1" aria-label="Show testimonial 2"></button>
+            <button type="button" class="dot" data-testimonial="2" aria-label="Show testimonial 3"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" id="contact">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s build something sharp, fast, and memorable.</h2>
+        </div>
+
+        <div class="contact-grid">
+          <form class="contact-form glass reveal" id="contact-form" novalidate>
+            <div class="field-row">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+            <label>
+              <span>Project type</span>
+              <input type="text" name="subject" placeholder="Portfolio, dashboard, startup site..." required />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="Tell me about the product, timeline, and goals." required></textarea>
+            </label>
+            <button class="btn btn--primary magnetic" type="submit">Send inquiry</button>
+            <p class="form-status" id="form-status" aria-live="polite"></p>
+          </form>
+
+          <div class="contact-stack">
+            <article class="contact-card glass reveal">
+              <h3>Direct contact</h3>
+              <p><a href="mailto:kumarishimpi362@gmail.com">kumarishimpi362@gmail.com</a></p>
+              <p>Chennai, India</p>
+            </article>
+            <article class="contact-card glass reveal">
+              <h3>Social links</h3>
+              <div class="contact-links">
+                <a href="https://github.com/Shimpi343" target="_blank" rel="noreferrer">GitHub</a>
+                <a href="https://www.linkedin.com/in/shimpi-kumari-866a36289" target="_blank" rel="noreferrer">LinkedIn</a>
+                <a href="mailto:kumarishimpi362@gmail.com">Email</a>
+              </div>
+            </article>
+            <article class="contact-card glass reveal">
+              <h3>Map placeholder</h3>
+              <div class="map-placeholder" aria-hidden="true">
+                <span>Google Maps Preview</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <a class="footer__brand" href="#hero">SK</a>
+        <p>© 2026 Shimpi Kumari. Built with motion, clarity, and intent.</p>
+        <button class="back-top" id="back-top" type="button">Back to top</button>
+      </div>
+    </footer>
   </body>
 </html>
