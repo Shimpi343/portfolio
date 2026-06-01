@@ -1246,3 +1246,18 @@ textarea:focus {
   .simple-skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .simple-project-grid { grid-template-columns: 1fr; }
 }
+
+/* Make simplified cards visible immediately (disable reveal fade for these) */
+.simple-skill.reveal,
+.simple-project-card.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Global override: disable reveal fade animations site-wide */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
