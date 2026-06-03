@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Education page for Shimpi Kumari, a B.Tech engineering student." />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Education | Shimpi Kumari</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.16/dist/lenis.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="loader" id="loader" aria-hidden="true"><div class="loader__ring"></div><div class="loader__brand">SK</div></div>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor cursor--trail" id="cursor-trail" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+    <header class="site-header">
+      <a class="brand" href="index.html#hero" aria-label="Shimpi Kumari home"><span class="brand-mark">SK</span><span class="brand-text"><strong>Shimpi Kumari</strong><small>B.Tech Student</small></span></a>
+      <nav class="nav" aria-label="Primary navigation" id="site-nav"><a href="index.html#hero">Home</a><a href="about.html">About</a><a class="is-active" href="education.html" aria-current="page">Education</a><a href="skills.html">Skills</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></nav>
+      <div class="header-actions"><button class="icon-btn" id="music-toggle" type="button" aria-label="Toggle background music">♪</button><button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">◐</button><button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button></div>
+    </header>
+    <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true"><a href="index.html#hero">Home</a><a href="about.html">About</a><a class="is-active" href="education.html" aria-current="page">Education</a><a href="skills.html">Skills</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></aside>
+    <main>
+      <section class="section-shell" id="education-page">
+        <div class="section-heading reveal"><p class="eyebrow">Education</p><h2>Academic foundation and learning path.</h2></div>
+        <div class="simple-skill-grid" aria-label="Education details">
+          <article class="simple-skill glass"><h3>B.Tech Program</h3><p>Engineering coursework focused on computer science fundamentals, software logic, and practical problem solving.</p><div class="skill-tags"><span>Engineering</span><span>Programming</span></div></article>
+          <article class="simple-skill glass"><h3>Classroom Learning</h3><p>Building understanding through lectures, labs, assignments, and small team-based technical tasks.</p><div class="skill-tags"><span>Labs</span><span>Assignments</span><span>Teamwork</span></div></article>
+          <article class="simple-skill glass"><h3>Self Learning</h3><p>Practicing coding, exploring web technologies, and improving with tutorials and projects outside class.</p><div class="skill-tags"><span>Self Study</span><span>Web Dev</span></div></article>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><div class="footer__inner"><a class="footer__brand" href="index.html#hero">SK</a><p>© 2026 Shimpi Kumari. Built as a multi-page engineering student portfolio.</p><button class="back-top" id="back-top" type="button">Back to top</button></div></footer>
+  </body>
+</html><!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Education page for Shimpi Kumari, a B.Tech engineering student." />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Shimpi Kumari | Education</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.16/dist/lenis.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__ring"></div>
+      <div class="loader__brand">SK</div>
+    </div>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="cursor cursor--trail" id="cursor-trail" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html#hero" aria-label="Shimpi Kumari home">
+        <span class="brand-mark">SK</span>
+        <span class="brand-text"><strong>Shimpi Kumari</strong><small>B.Tech Student</small></span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation" id="site-nav">
+        <a href="index.html#hero">Home</a>
+        <a href="about.html">About</a>
+        <a href="education.html">Education</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="music-toggle" type="button" aria-label="Toggle background music">♪</button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </header>
+
+    <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <a href="index.html#hero">Home</a>
+      <a href="about.html">About</a>
+      <a href="education.html">Education</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </aside>
+
+    <main>
+      <section class="section-shell section-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Education</p>
+          <h2>Academic foundation and learning path.</h2>
+        </div>
+
+        <div class="simple-skill-grid" aria-label="Education details">
+          <article class="simple-skill glass reveal">
+            <h3>B.Tech Program</h3>
+            <p>Engineering coursework focused on computer science fundamentals, software logic, and practical problem solving.</p>
+            <div class="skill-tags"><span>Engineering</span><span>Programming</span></div>
+          </article>
+
+          <article class="simple-skill glass reveal">
+            <h3>Classroom Learning</h3>
+            <p>Building understanding through lectures, labs, assignments, and small team-based technical tasks.</p>
+            <div class="skill-tags"><span>Labs</span><span>Assignments</span><span>Teamwork</span></div>
+          </article>
+
+          <article class="simple-skill glass reveal">
+            <h3>Self Learning</h3>
+            <p>Practicing coding, exploring web technologies, and improving with tutorials and projects outside class.</p>
+            <div class="skill-tags"><span>Self Study</span><span>Web Dev</span></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <a class="footer__brand" href="index.html#hero">SK</a>
+        <p>© 2026 Shimpi Kumari. Education page.</p>
+        <button class="back-top" id="back-top" type="button">Back to top</button>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -374,7 +374,13 @@ function initProgress() {
 
 function initBackTop() {
   if (!backTop) return;
-  backTop.addEventListener('click', () => smoothScrollTo('#hero'));
+  backTop.addEventListener('click', () => {
+    if (document.querySelector('#hero')) {
+      smoothScrollTo('#hero');
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 function initMagneticButtons() {
