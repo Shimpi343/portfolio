@@ -31,16 +31,16 @@ const state = {
 };
 
 const roles = [
-  'Full Stack Developer',
-  'Frontend Engineer',
-  'UI/UX Designer',
+  'B.Tech Student',
+  'Engineering Learner',
+  'Web Project Builder',
   'Problem Solver',
 ];
 
 const snippets = [
-  'Building interfaces that feel premium, fast, and easy to trust.',
-  'Turning product goals into polished, human-centered experiences.',
-  'Shipping scalable front ends with motion, clarity, and speed.',
+  'Learning engineering concepts and turning them into working projects.',
+  'Building simple, responsive pages with clean structure and logic.',
+  'Practicing code, problem solving, and project planning every week.',
 ];
 
 function setTheme(theme) {
