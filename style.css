@@ -286,13 +286,13 @@ button {
 .section-shell {
   width: min(calc(100% - 32px), var(--max-width));
   margin: 0 auto;
-  padding: 96px 0 0;
+  padding: 72px 0 0;
 }
 
 .hero {
   position: relative;
-  min-height: calc(100vh - 120px);
-  padding-top: 72px;
+  min-height: auto;
+  padding-top: 56px;
 }
 
 .hero__glow {
@@ -333,14 +333,14 @@ button {
   z-index: 1;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 32px;
-  align-items: center;
+  gap: 24px;
+  align-items: start;
 }
 
 .hero__copy {
   position: relative;
   display: grid;
-  gap: 22px;
+  gap: 18px;
 }
 
 .eyebrow {
@@ -493,11 +493,11 @@ code {
 
 .hero__visual {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .hero-card {
-  padding: 22px;
+  padding: 18px;
 }
 
 .hero-card--stats {
@@ -525,7 +525,7 @@ code {
 }
 
 .hero-card--orb {
-  min-height: 420px;
+  min-height: 340px;
   display: grid;
   gap: 14px;
 }
@@ -555,7 +555,7 @@ code {
 
 .three-scene {
   position: relative;
-  min-height: 360px;
+  min-height: 280px;
   border-radius: 26px;
   overflow: hidden;
   background:
@@ -581,7 +581,7 @@ code {
 .section-heading {
   display: grid;
   gap: 10px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .section-heading h2 {
@@ -603,7 +603,7 @@ code {
 .project-card,
 .service-card,
 .highlight-card {
-  padding: 22px;
+  padding: 20px;
 }
 
 .about-card {
@@ -1138,7 +1138,7 @@ textarea:focus {
 @media (max-width: 640px) {
   .section-shell {
     width: min(calc(100% - 22px), var(--max-width));
-    padding-top: 76px;
+    padding-top: 64px;
   }
 
   .hero__title {
@@ -1147,11 +1147,11 @@ textarea:focus {
   }
 
   .hero-card--orb {
-    min-height: 320px;
+    min-height: 280px;
   }
 
   .three-scene {
-    min-height: 260px;
+    min-height: 220px;
   }
 
   .site-header {
@@ -1196,20 +1196,20 @@ textarea:focus {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .focus-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 14px;
+  margin-top: 8px;
 }
 .focus-card { padding: 14px; }
 .focus-card h4 { margin: 0 0 6px 0; }
 .focus-card ul { margin: 0; padding-left: 18px; color: var(--text-soft); }
 .simple-skill {
-  padding: 20px;
+  padding: 18px;
   min-height: 160px;
   display: flex;
   flex-direction: column;
@@ -1238,10 +1238,10 @@ textarea:focus {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 .simple-project-card {
-  padding: 20px;
+  padding: 18px;
   display: grid;
   gap: 12px;
 }
