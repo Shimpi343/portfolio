@@ -153,9 +153,16 @@ function initLenis() {
 function initGSAP() {
   if (typeof gsap === 'undefined') return;
 
-  const revealTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  revealTimeline.from('.site-header', { y: -24, opacity: 0, duration: 0.8 });
-  revealTimeline.from('.hero .reveal', { y: 28, opacity: 0, duration: 0.9, stagger: 0.08 }, '-=0.3');
+  const hero = document.querySelector('.hero');
+  const heroReveals = hero ? hero.querySelectorAll('.reveal') : [];
+
+  if (hero) {
+    const revealTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    revealTimeline.from('.site-header', { y: -24, opacity: 0, duration: 0.8 });
+    if (heroReveals.length) {
+      revealTimeline.from(heroReveals, { y: 28, opacity: 0, duration: 0.9, stagger: 0.08 }, '-=0.3');
+    }
+  }
 
   if (typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
@@ -176,19 +183,21 @@ function initGSAP() {
         });
     });
 
-    gsap.to('.hero__glow--one', {
-      y: 40,
-      x: 20,
-      ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
-    });
+    if (hero) {
+      gsap.to('.hero__glow--one', {
+        y: 40,
+        x: 20,
+        ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
+      });
 
-    gsap.to('.hero__glow--two', {
-      y: -30,
-      x: -20,
-      ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
-    });
+      gsap.to('.hero__glow--two', {
+        y: -30,
+        x: -20,
+        ease: 'none',
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
+      });
+    }
   }
 }
 
