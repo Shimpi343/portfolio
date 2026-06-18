@@ -31,16 +31,16 @@ const state = {
 };
 
 const roles = [
-  'B.Tech student',
-  'Personal portfolio builder',
-  'Web project maker',
-  'Problem solver',
+  'B.Tech CSE student',
+  'Web developer intern',
+  'AI and data project builder',
+  'Full-stack learner',
 ];
 
 const snippets = [
-  'Turning ideas into clean, personal web experiences.',
-  'Learning through small projects, practice, and iteration.',
-  'Building a portfolio that feels clear, warm, and personal.',
+  'Building practical apps in web development, AI, and data.',
+  'Improving through internships, certifications, and projects.',
+  'Creating clean interfaces with useful real-world features.',
 ];
 
 function setTheme(theme) {
@@ -154,7 +154,7 @@ function initGSAP() {
   if (typeof gsap === 'undefined') return;
 
   const hero = document.querySelector('.hero');
-  const heroReveals = hero ? hero.querySelectorAll('.reveal') : [];
+  const heroReveals = hero ? Array.from(hero.querySelectorAll('.reveal')) : [];
 
   if (hero) {
     const revealTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
@@ -168,7 +168,10 @@ function initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
 
     document.querySelectorAll('.section-shell').forEach((section) => {
-      gsap.fromTo(section.querySelectorAll('.reveal'),
+      const sectionReveals = Array.from(section.querySelectorAll('.reveal'));
+      if (!sectionReveals.length) return;
+
+      gsap.fromTo(sectionReveals,
         { y: 28, opacity: 0 },
         {
           y: 0,
