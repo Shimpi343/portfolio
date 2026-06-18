@@ -31,16 +31,16 @@ const state = {
 };
 
 const roles = [
-  'B.Tech Student',
-  'Engineering Learner',
-  'Web Project Builder',
-  'Problem Solver',
+  'B.Tech student',
+  'Personal portfolio builder',
+  'Web project maker',
+  'Problem solver',
 ];
 
 const snippets = [
-  'Learning engineering concepts and turning them into working projects.',
-  'Building simple, responsive pages with clean structure and logic.',
-  'Practicing code, problem solving, and project planning every week.',
+  'Turning ideas into clean, personal web experiences.',
+  'Learning through small projects, practice, and iteration.',
+  'Building a portfolio that feels clear, warm, and personal.',
 ];
 
 function setTheme(theme) {
