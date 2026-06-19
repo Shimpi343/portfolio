@@ -157,10 +157,10 @@ function initGSAP() {
   const heroReveals = hero ? Array.from(hero.querySelectorAll('.reveal')) : [];
 
   if (hero) {
-    const revealTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    revealTimeline.from('.site-header', { y: -24, opacity: 0, duration: 0.8 });
+    const revealTimeline = gsap.timeline({ defaults: { ease: 'power4.out' } });
+    revealTimeline.from('.site-header', { y: -32, opacity: 0, duration: 0.9 });
     if (heroReveals.length) {
-      revealTimeline.from(heroReveals, { y: 28, opacity: 0, duration: 0.9, stagger: 0.08 }, '-=0.3');
+      revealTimeline.from(heroReveals, { y: 32, opacity: 0, duration: 1, stagger: 0.1 }, '-=0.4');
     }
   }
 
@@ -172,33 +172,33 @@ function initGSAP() {
       if (!sectionReveals.length) return;
 
       gsap.fromTo(sectionReveals,
-        { y: 28, opacity: 0 },
+        { y: 32, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.9,
-          stagger: 0.08,
-          ease: 'power3.out',
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: section,
-            start: 'top 72%',
+            start: 'top 75%',
           },
         });
     });
 
     if (hero) {
       gsap.to('.hero__glow--one', {
-        y: 40,
-        x: 20,
+        y: 48,
+        x: 24,
         ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 },
       });
 
       gsap.to('.hero__glow--two', {
-        y: -30,
-        x: -20,
+        y: -36,
+        x: -28,
         ease: 'none',
-        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 },
+        scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 },
       });
     }
   }
@@ -464,9 +464,9 @@ function initThreeScene() {
   const geo = new THREE.IcosahedronGeometry(1.6, 2);
   const mat = new THREE.MeshStandardMaterial({
     color: 0x00f5ff,
-    emissive: 0x112244,
-    metalness: 0.82,
-    roughness: 0.15,
+    emissive: 0x001a33,
+    metalness: 0.85,
+    roughness: 0.12,
     wireframe: false,
   });
   const sphere = new THREE.Mesh(geo, mat);
@@ -475,10 +475,10 @@ function initThreeScene() {
   const ring = new THREE.Mesh(
     new THREE.TorusKnotGeometry(2.05, 0.26, 180, 20),
     new THREE.MeshStandardMaterial({
-      color: 0x8a2be2,
-      emissive: 0x1a0830,
-      metalness: 0.9,
-      roughness: 0.22,
+      color: 0xa78bfa,
+      emissive: 0x2d1b4e,
+      metalness: 0.92,
+      roughness: 0.18,
     })
   );
   ring.rotation.x = Math.PI / 2.6;
@@ -502,14 +502,14 @@ function initThreeScene() {
   );
   scene.add(particles);
 
-  const ambient = new THREE.AmbientLight(0x9bbcff, 1.8);
+  const ambient = new THREE.AmbientLight(0x9bbcff, 2);
   scene.add(ambient);
 
-  const point = new THREE.PointLight(0x00f5ff, 14, 20);
+  const point = new THREE.PointLight(0x00f5ff, 16, 22);
   point.position.set(4, 3, 6);
   scene.add(point);
 
-  const pointTwo = new THREE.PointLight(0xff00ff, 10, 20);
+  const pointTwo = new THREE.PointLight(0xa78bfa, 12, 22);
   pointTwo.position.set(-3, -2, 5);
   scene.add(pointTwo);
 
