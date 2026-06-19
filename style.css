@@ -784,34 +784,71 @@ code {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .project-card {
   display: grid;
-  gap: 18px;
+  gap: 16px;
   transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.simple-project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.simple-project-card {
+  display: grid;
+  gap: 14px;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--border);
+  backdrop-filter: blur(28px);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.simple-project-card:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  border-color: rgba(0, 245, 255, 0.2);
+  box-shadow: 0 16px 56px rgba(0, 245, 255, 0.16), var(--shadow-sm);
+  transform: translateY(-8px) scale(1.01);
 }
 
 .project-card__media {
   position: relative;
-  border-radius: 22px;
+  border-radius: 20px;
   overflow: hidden;
   aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.08), rgba(167, 139, 250, 0.08));
 }
 
 .project-card__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-card__media img {
+  transform: scale(1.06) rotate(0.5deg);
 }
 
 .project-card__media::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.55));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+  transition: background 0.4s ease;
+}
+
+.project-card:hover .project-card__media::after {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
 }
 
 .project-badge {
@@ -833,16 +870,25 @@ code {
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
+  margin-bottom: 4px;
 }
 
 .project-tags span {
-  padding: 7px 12px;
+  padding: 8px 14px;
   border-radius: 999px;
-  font-size: 0.84rem;
-  color: var(--text-soft);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #00f5ff;
+  background: rgba(0, 245, 255, 0.08);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.simple-project-card:hover .project-tags span {
+  background: rgba(0, 245, 255, 0.14);
+  border-color: rgba(0, 245, 255, 0.4);
+  transform: translateY(-2px);
 }
 
 .experience-grid {
