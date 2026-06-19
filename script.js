@@ -406,13 +406,14 @@ function initMagneticButtons() {
       const y = event.clientY - rect.top - rect.height / 2;
       if (frame) cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
-        button.style.transform = `translate(${x * 0.16}px, ${y * 0.18}px)`;
+        button.style.transform = `translate(${x * 0.18}px, ${y * 0.2}px) scale(1.02)`;
       });
     });
     button.addEventListener('pointerleave', () => {
       if (frame) cancelAnimationFrame(frame);
-      button.style.transform = '';
+      button.style.transform = 'translate(0, 0) scale(1)';
     });
+    button.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
   });
 }
 
@@ -421,21 +422,27 @@ function initProjectTilt() {
 
   document.querySelectorAll('.project-card, .skill-card, .service-card').forEach((card) => {
     let rect = null;
+    let frame = null;
     const onMove = (event) => {
       rect = rect || card.getBoundingClientRect();
       const px = (event.clientX - rect.left) / rect.width;
       const py = (event.clientY - rect.top) / rect.height;
-      const rotateY = (px - 0.5) * 12;
-      const rotateX = (0.5 - py) * 10;
-      card.style.transform = `perspective(1100px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      const rotateY = (px - 0.5) * 14;
+      const rotateX = (0.5 - py) * 12;
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px) scale(1.01)`;
+      });
     };
     const reset = () => {
+      if (frame) cancelAnimationFrame(frame);
       card.style.transform = '';
       rect = null;
     };
     card.addEventListener('pointermove', onMove);
     card.addEventListener('pointerleave', reset);
     card.addEventListener('pointercancel', reset);
+    card.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
   });
 }
 
